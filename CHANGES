@@ -1,0 +1,156 @@
+2008-02-12
+
+  Patches from Roine: support NBZ files within SAR archives, and fix
+  the xcode project.
+
+
+2008-01-03
+
+  Numerous patches from Mion of Sonozaki Futago-tachi:
+    * Fix bugs in prnum
+    * Remove extra newlines in built-in save/load menus
+    * Modify skip-to-wait mode to fix Higurashi problems
+    * Allow multiple archive paths, to facilitate distributing patches
+    * Fix intermittent crashes with multicore processors
+    * Fix input breakage in auto mode
+
+
+2007-11-11
+
+  Simplify handling of the click-wait enum.
+
+  Temporarily disable skip_to_wait; there's breakage somewhere that's
+  causing nasty side-effects in Higurashi.
+
+
+2007-07-20
+
+  Adjust btnwait to match NScripter behaviour more closely.  (Further
+  tests are required to confirm that this doesn't break any edge
+  cases.)
+
+
+2007-06-20
+
+  Fix an OS X bug causing bundled games to fail.
+
+
+2007-06-12
+
+  Get the build working on Solaris (a useful benchmark for how well
+  things work on less Linux-like platforms) and NetBSD (a useful step
+  towards my ultimate goal of a visual novel on every toaster).
+
+  Fix some more MinGW build errors.
+
+  Add the missing `install' target.
+
+
+2007-06-07
+
+  Fix some errors when mixing internal and system libraries.
+  Improve support for FreeBSD.
+
+
+2007-05-13
+
+  Attempt to detect when a PNG image is using an NScripter-style mask
+  area for transparency rather than a PNG alpha channel; add
+  command-line flags and compile-time options to force either
+  behaviour if auto-detection fails.  This should fix games like
+  Tsukihime which were broken by the addition of alpha channel
+  support.
+
+
+2007-05-06
+
+  Fix some bugs: parsing of arguments, saving of vertical text,
+  and compilation without INSANI defined.
+
+
+2007-05-01
+
+  Merge in some more changes from Roine designed to make life better
+  for OS X users:
+
+  Include an Xcode project to simplify Mac builds.
+
+  If game resources are not in the app's bundle, look for them in the
+  application path instead.
+
+  Store saves and other data under Application Support, not
+  Preferences.
+
+
+2007-04-27
+
+  Merge in Roine's scaling patch.  This is considered experimental,
+  and will currently only be enabled if RCA_SCALE is defined at
+  compile-time.
+
+  Fix a silly bug in the previous mergings.
+
+
+2007-04-25
+
+  Merge in an adapted version of the `drawfix' patch to speed up
+  screen updates in windowed mode, plus a number of other patches:
+
+  Support both SAR and NSA archives at the same time (zalas)
+
+  Reduce flicker when sprites are changed (Roine Gustafsson)
+
+  Fix gcc detection on OS X (Roine)
+
+  Display missing game data error as a dialog on OS X (Roine)
+
+  Support multiple games without game IDs at the same time (Roine)
+
+  Fix incorrect clipping of text shadow (Roine)
+
+
+2007-04-15
+
+  Merge in useful fixes from onscripter-20070206.
+
+
+2007-04-08
+
+  Update build system to use a configure script that generates a
+  platform-appropriate makefile.  This also verifies that all required
+  dependencies are available, and provides the option of building
+  local libraries as required.  The end result is a package that can
+  reasonably be distributed in source form for Linux users.
+  In the process support for PSP, iPod, etc. has been removed; it
+  could be replaced easily enough if anyone was available to test.
+
+  Translate README.
+
+  To make life easier with existing games, add the ability to store
+  game ID in a file `game.id' as an alternative to modifying 0.txt.
+
+
+2006-11-22
+
+  Implement default data/save separation for Windows and Linux too.
+  On Windows, saves go under the global Application Data folder; on
+  Linux and other Unix-like systems, they go in a dotdir in the user's
+  home directory.  These changes enhance Vista compatibility
+  considerably, and make it possible to package Linux games in a way
+  that respects the FHS.
+
+
+2006-09-05
+
+  Fix typo in usage summary.
+  
+  Remove unnecessary diagnostics.
+
+  Make archive path and save path separately configurable.  Game data
+  no longer has to be stored in a writable directory.
+  
+  OS X: make default archive path be the Resources folder of the
+  application bundle, and default save path be a new subfolder of the
+  user's Library/Preferences.  The name of the subfolder is derived
+  from a new "game identifier" that should be specified at the top of
+  0.txt with a ";gameid Whatever" line immediately after the modeline.

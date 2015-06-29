@@ -1,0 +1,45 @@
+* TO BUILD ONSCRIPTER FOR YOUR USE
+
+This is the usual
+
+  ./configure
+  make
+  sudo make install
+
+
+This will use gcc by default; to use icc, start with
+  CC=icc ./configure
+
+
+* TO BUILD A RELATIVELY REDISTRIBUTABLE ONSCRIPTER BINARY
+
+  ./configure --with-internal-libs
+  make
+
+This will statically link as many libraries as possible into the
+executable, which makes life better on systems with very primitive
+application installation methods, such as OS X and Windows.
+
+(You may actually prefer to do this other platforms too; I've several
+times had problems with OS-provided SDL libraries producing stuttering
+audio while the internal version worked beautifully.)
+
+If you are compiling ONScripter for a system with modern package
+management - for example, if you are creating a binary package for a
+specific Linux distribution - then it may make more sense to omit the
+--with-internal-libs, compile a dynamically linked executable, and
+have your package depend on the regular platform-specific packages for
+SDL, Freetype, and all the other dependencies.
+
+
+* NOTES
+
+For Windows builds, use a MinGW toolchain in the MSYS environment.
+There is no Visual Studio option; it just isn't worth the pain.
+
+For Mac OS X there is an XCode project file in the "macosx" directory.
+It builds a Universal binary as an application bundle.
+Either build from within XCode, or use "xcodebuild" from a shell prompt. 
+It is known to build with XCode 2.4.1 on Mac OS X 10.4.
+The game data can either be stored in the Contents/Resources within the
+bundle, or run ONScripter.app from within the game directory itself.

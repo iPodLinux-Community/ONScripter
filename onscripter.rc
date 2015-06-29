@@ -1,0 +1,22 @@
+1 VERSIONINFO
+FILEVERSION 2008, 2, 14, 0
+PRODUCTVERSION 2008, 2, 14, 0
+FILEFLAGS 32
+FILEOS 4
+FILETYPE 1
+{
+   BLOCK "StringFileInfo" {
+       BLOCK "080904b0" {
+           VALUE "FileDescription", "ONScripter-En"
+           VALUE "OriginalFilename", "onscripter-en.exe"
+           VALUE "CompanyName", "Ogapee/Haeleth"
+           VALUE "FileVersion", "2008-2-14"
+           VALUE "LegalCopyright", "Copyright 1998-2007 Studio O.G.A. Portions copyright 2005-2006 insani, 2006-2008 Haeleth."
+           VALUE "ProductName", "ONScripter-En"
+           VALUE "ProductVersion", "2008-2-14"
+       }
+   }
+   BLOCK "VarFileInfo" {
+       VALUE "Translation", 0x0809, 0x04B0
+   }
+}
