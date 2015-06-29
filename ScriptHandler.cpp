@@ -902,7 +902,7 @@ int ScriptHandler::readScript( DirPaths *path )
     FILE *fp = fopen("game.id", "rb");
     if (fp) {
 	size_t line_size = 0;
-	char c;
+	int c;
 	do {
 	    c = fgetc(fp);
 	    ++line_size;

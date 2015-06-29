@@ -266,7 +266,7 @@ void AnimationInfo::blendOnSurface( SDL_Surface *dst_surface, int dst_x, int dst
     for (int i=0 ; i<dst_rect.h ; i++){
         for (int j=0 ; j<dst_rect.w ; j++, src_buffer++, dst_buffer++){
 	    // If we've run out of source area, ignore the remainder.
-	    if (src_buffer >= srcmax) goto break2;
+	    //if (src_buffer >= srcmax) goto break2; // Breaks compiling and latest Jap source doesn't have this line ~Keripo
             BLEND_PIXEL();
         }
         src_buffer += total_width - dst_rect.w;

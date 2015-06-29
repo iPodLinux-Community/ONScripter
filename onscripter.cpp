@@ -81,6 +81,13 @@ extern "C" int main( int argc, char **argv )
 int main( int argc, char **argv )
 #endif
 {
+    printf("ONScripter version %s (%d.%02d)\n", ONS_VERSION, NSC_VERSION/100, NSC_VERSION%100 );
+    printf("Written by Ogapee <ogapee@aqua.dti2.ne.jp>\n\n");
+    printf("Copyright (c) 2001-2006 Ogapee.\n");
+    printf("This is free software; see the source for copying conditions.\n");
+    printf("English version modified by Insani and Haeleth\n");
+    printf("iPodLinux version built by Keripo\n");
+    
     ONScripterLabel ons;
 
 #ifdef PSP

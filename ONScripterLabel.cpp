@@ -718,6 +718,9 @@ int ONScripterLabel::init()
     sprintf(script_h.save_path, "%s/%s/", path, gameid);
 	mkdir(script_h.save_path, 0755);
 #elif defined LINUX
+#ifdef IPODLINUX
+	script_h.save_path = archive_path->get_path(0);
+#else
 	// On Linux (and similar *nixen), place in ~/.gameid
 	passwd* pwd = getpwuid(getuid());
 	if (pwd) {
@@ -726,6 +729,7 @@ int ONScripterLabel::init()
 	    mkdir(script_h.save_path, 0755);
 	}
 	else script_h.save_path = archive_path->get_path(0);
+#endif
 #else
 	// Fall back on default ONScripter behaviour if we don't have
 	// any better ideas.
@@ -1515,8 +1519,9 @@ SDL_Surface *ONScripterLabel::loadImage( char *file_name, bool *has_alpha )
 	    SDL_UnlockSurface(ret);
 	}
     }
-#else
-#warning "BPP16 defined: PNGs with NScripter-style masks will not work as expected"
+// iPod needs BPP16 so ignore the warning ~Keripo
+//#else
+//#warning "BPP16 defined: PNGs with NScripter-style masks will not work as expected"
 #endif
     
     return ret;
